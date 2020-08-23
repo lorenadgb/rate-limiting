@@ -6,6 +6,7 @@ ruby '2.5.8'
 gem 'rails',   '~> 6.0.3', '>= 6.0.3.2'
 gem 'puma',    '~> 4.1'
 gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+gem 'redis',   '~> 3.3', '>= 3.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -14,6 +15,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop'
+  gem 'dotenv-rails'
 end
 
 group :development do
