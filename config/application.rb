@@ -1,4 +1,5 @@
 require_relative 'boot'
+require_relative '../app/middleware/rate_limit/fixed_window'
 
 require "rails"
 # Pick the frameworks you want:
@@ -33,5 +34,7 @@ module RateLimiting
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.middleware.use FixedWindow
   end
 end
