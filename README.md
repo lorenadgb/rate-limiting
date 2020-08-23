@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rate-limiting module that stops a particular requestor from making too many http requests within a particular period of time (one hour).
 
-Things you may want to cover:
+This solution implements a Rack middleware (RateLimit - Fixed Window) to process inbound responses.
 
-* Ruby version
+## Dependencies
 
-* System dependencies
+To run this project you need to have:
 
-* Configuration
+* Ruby 2.5.8 - You can use [RVM](http://rvm.io)
+* Rails 6.0
+* Redis 3.3
 
-* Database creation
+## Setup the project
 
-* Database initialization
+1. `$ git clone git@github.com:lorenadgb/rate-limiting.git` - Clone the project
+2. `$ cd rate-limiting` - Go into the project folder
 
-* How to run the test suite
+## Getting started
 
-* Services (job queues, cache servers, search engines, etc.)
+The quickest way to get started is using [docker-compose](https://docs.docker.com/compose/).
 
-* Deployment instructions
+```console
+$ docker-compose build
+$ docker-compose up
+```
 
-* ...
+## Running tests
+
+`$ rake spec`
+
+## Endpoints
+
+#### GET /api/v1/home
+
+`Example: http://localhost:3000/api/v1/home`
+
+```
+curl localhost:3000/api/v1/home
+``` 
+
+```
+for ((i=0;i<=100;i++)); do   curl -v --header "Connection: keep-alive" "localhost:3000/api/v1/home"; done
+```
