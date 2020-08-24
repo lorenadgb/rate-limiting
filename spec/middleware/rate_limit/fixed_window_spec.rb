@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FixedWindow do
+RSpec.describe RateLimit::FixedWindow do
   subject { described_class.new(app) }
 
   let(:app) { ->(env) { [200, env, 'app'] } }

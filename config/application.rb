@@ -35,6 +35,6 @@ module RateLimiting
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.use FixedWindow
+    config.middleware.use RateLimit::FixedWindow
   end
 end
